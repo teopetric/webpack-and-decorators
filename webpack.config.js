@@ -1,15 +1,18 @@
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-//commonJs modules
+// commonJs modules
 // module.exports, exports, require
 module.exports = {
-    entry: './src/index.js',
+    mode: 'development', // development, production, none, SourceMaps
+    entry: './src/index.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'mybundle.js'
+        filename: '[name].[hash].js'
     },
     resolve: {
-        extensions: [' .js', '.ts']
+        extensions: ['.js', '.ts']
     },
     module: {
         rules: [
@@ -18,5 +21,17 @@ module.exports = {
                 test: /\.ts?$/
             }
         ]
+    },
+
+    plugins: [
+        new CleanWebpackPlugin(),
+        // new HtmlWebpackPlugin({template: './src/template.html'})
+        new HtmlWebpackPlugin()
+    ],
+
+    devServer: {
+        contentBase: './dist/',
+        hot: true,
+        overlay: true
     }
 }
