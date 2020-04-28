@@ -11,7 +11,7 @@
 - https://webpack.js.org/
 
 # Exercises
-- https://www.codewars.com/collections/learning-typescript (focus on the first 7 only)
+- link to some exercises for who wants: https://www.codewars.com/collections/learning-typescript (focus on the first 7 only)
 
 # Decorator Resources
 
