@@ -55,4 +55,36 @@ export function getResult(result: SuccessServerResult) {
 	}
 }
 
+/* Exercise 3: https://www.codewars.com/kata/591305520c6f9f5c93000052 */
+
+interface IGeometricFigure {
+	/** Calculates area of the figure */
+	area: () => number;
+	/** Calculates perimeter of the figure */
+	perimeter: () => number;
+}
+
+export class Square implements IGeometricFigure {
+    private x: number;
+
+    area () {
+        return this.x*this.x;
+    }
+    perimeter () {
+        return 4*this.x;
+    }
+	
+}
+
+export class Circle implements IGeometricFigure {
+    private r: number;
+    
+    area () {
+        return Math.PI*this.r*this.r;
+    }
+    perimeter () {
+        return 2*Math.PI*this.r;
+    }
+}
+
 
