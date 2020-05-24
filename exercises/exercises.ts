@@ -181,3 +181,32 @@ export class Dog extends Animal {
 		return `Hello, ${this.master}.`;
 	}
 }
+
+/* Exercise 6: https://www.codewars.com/kata/599d636e607719edf600010a */
+
+export class Cuboid {
+
+	constructor(public length: number, public width: number, public height: number) {
+		this.length = length;
+		this.height = height;
+		this.width = width;
+	}
+
+	get surfaceArea() {
+		return 2*(this.length*this.width + this.width*this.height + this.height*this.length);
+	}
+
+	get volume() {
+		return this.length*this.width*this.height;
+	}
+
+}
+
+export class Cube extends Cuboid {
+
+	constructor(public length: number) {
+		super(length, length, length);
+	}
+
+}
+
