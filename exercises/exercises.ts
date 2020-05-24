@@ -65,26 +65,119 @@ interface IGeometricFigure {
 }
 
 export class Square implements IGeometricFigure {
-    private x: number;
+	private x: number;
 
-    area () {
-        return this.x*this.x;
-    }
-    perimeter () {
-        return 4*this.x;
-    }
-	
+	area() {
+		return this.x * this.x;
+	}
+	perimeter() {
+		return 4 * this.x;
+	}
 }
 
 export class Circle implements IGeometricFigure {
-    private r: number;
-    
-    area () {
-        return Math.PI*this.r*this.r;
-    }
-    perimeter () {
-        return 2*Math.PI*this.r;
-    }
+	private r: number;
+
+	area() {
+		return Math.PI * this.r * this.r;
+	}
+	perimeter() {
+		return 2 * Math.PI * this.r;
+	}
 }
 
+/* Exercise 4: https://www.codewars.com/kata/590cb67bc69e3a31d0000042 */
 
+/* export abstract class Animal {
+	// @param {number} value The length of the animal in parrots. 
+	protected constructor(public value: number) {}
+
+	convertTo(someone: Animal) {}
+}
+
+export class Boa extends Animal {
+	// TODO:
+}
+
+export class Parrot extends Animal {
+	// TODO:
+}
+
+export class Monkey extends Animal {
+	// TODO:
+} */
+
+/* Exercise 5: https://www.codewars.com/kata/59138d93eefeaecdbe000031 */
+
+declare var IAnimal: {
+	new (
+		name: string,
+		age: number,
+		legs: number,
+		species: string,
+		status: string
+	): IAnimal;
+};
+
+interface IAnimal {
+	name: string;
+	age: number;
+	legs: number;
+	species: string;
+	status: string;
+	introduce: () => string;
+}
+
+export class Animal implements IAnimal {
+
+	constructor(public name: string, public age: number, public legs: number, public species: string, public status: string) {
+		this.name = name;
+		this.age = age;
+		this.legs = legs;
+		this.species = species;
+		this.status = status;
+	}
+
+	public introduce () {
+		return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+	}
+
+}
+
+export class Shark extends Animal {
+
+	constructor(public name: string, public age: number, public status: string) {
+		super(name, age, 0, 'Shark', status);
+	}
+
+	introduce() {
+		return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+	}
+}
+
+export class Cat extends Animal {
+
+	constructor(public name: string, public age: number, public status: string) {
+		super(name, age, 4, 'Cat', status);
+	}
+
+	introduce () {
+		return `Hello, my name is ${this.name} and I am ${this.age} years old.  Meow meow!`;
+	}
+}
+
+export class Dog extends Animal {
+
+	constructor(public name: string, public age: number, public status: string, public master: string) {
+		super(name, age, 4, 'Dog', status);
+		this.master = master;
+	}
+
+	introduce () {
+		return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+	}
+
+	greetMaster() {
+		return `Hello, ${this.master}.`;
+	}
+}
